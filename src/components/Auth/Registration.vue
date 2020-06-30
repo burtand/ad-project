@@ -45,7 +45,8 @@
             <v-btn
               color="primary"
               @click="onSubmit"
-              :disabled="!valid"
+              :loading="loading"
+              :disabled="!valid || loading"
             >Create account!</v-btn>
           </v-card-actions>
 
@@ -75,6 +76,11 @@ export default {
         v => !!v || 'Password is required',
         v => v === this.password || 'Passwords should match'
       ]
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters.loading
     }
   },
   methods: {
