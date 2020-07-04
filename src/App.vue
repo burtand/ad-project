@@ -78,6 +78,25 @@
     <router-view></router-view>
   </v-content>
 
+  <template v-if="error">
+    <v-snackbar
+      :color="'error'"
+      :multi-line="true"
+      :timeout="5000"
+      :bottom="true"
+      :value="true"
+    >
+      {{ error }}
+      <v-btn
+        dark
+        text
+        @click="closeError"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
+  </template>
+
 </v-app>
 </template>
 
@@ -94,6 +113,16 @@ export default {
         { title: 'New ad', icon: 'mdi-file-plus', url: '/new' },
         { title: 'My ads', icon: 'mdi-view-list-outline', url: '/list' }
       ]
+    }
+  },
+  computed: {
+    error () {
+      return this.$store.getters.error
+    }
+  },
+  methods: {
+    closeError () {
+      this.$store.dispatch('clearError')
     }
   }
 }
