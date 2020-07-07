@@ -105,19 +105,29 @@ export default {
   name: 'App',
   data () {
     return {
-      drawer: false,
-      links: [
-        { title: 'Login', icon: 'mdi-lock', url: '/login' },
-        { title: 'Registration', icon: 'mdi-face', url: '/registration' },
-        { title: 'Orders', icon: 'mdi-bookmark-multiple-outline', url: '/orders' },
-        { title: 'New ad', icon: 'mdi-file-plus', url: '/new' },
-        { title: 'My ads', icon: 'mdi-view-list-outline', url: '/list' }
-      ]
+      drawer: false
     }
   },
   computed: {
     error () {
       return this.$store.getters.error
+    },
+    isUserLoggedIn () {
+      return this.$store.getters.isUserLoggedIn
+    },
+    links () {
+      if (this.isUserLoggedIn) {
+        return [
+          { title: 'Orders', icon: 'mdi-bookmark-multiple-outline', url: '/orders' },
+          { title: 'New ad', icon: 'mdi-file-plus', url: '/new' },
+          { title: 'My ads', icon: 'mdi-view-list-outline', url: '/list' }
+        ]
+      }
+
+      return [
+        { title: 'Login', icon: 'mdi-lock', url: '/login' },
+        { title: 'Registration', icon: 'mdi-face', url: '/registration' }
+      ]
     }
   },
   methods: {
