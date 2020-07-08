@@ -31,6 +31,15 @@
           <v-icon left>{{link.icon}}</v-icon>
           {{link.title}}
         </v-btn>
+        <v-btn
+          depressed
+          color="primary"
+          @click="onLogout"
+          v-if="isUserLoggedIn"
+        >
+          <v-icon left>mdi-exit-run</v-icon>
+          Logout
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </v-card>
@@ -68,6 +77,19 @@
 
           <v-list-item-content>
             <v-list-item-title v-text="link.title"></v-list-item-title>
+          </v-list-item-content>
+         </v-list-item>
+         <v-list-item
+          link
+          @click="onLogout"
+          v-if="isUserLoggedIn"
+         >
+          <v-list-item-icon>
+            <v-icon color="white">mdi-exit-run</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title v-text="'Logout'"></v-list-item-title>
           </v-list-item-content>
          </v-list-item>
       </v-list>
@@ -133,6 +155,10 @@ export default {
   methods: {
     closeError () {
       this.$store.dispatch('clearError')
+    },
+    onLogout () {
+      this.$store.dispatch('logoutUser')
+      this.$router.push('/')
     }
   }
 }
