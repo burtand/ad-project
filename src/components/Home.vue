@@ -70,12 +70,13 @@
       <v-row>
         <v-col>
           <v-row
+          class="loader"
           align="center"
           justify="center"
           >
           <v-progress-circular
-            size="120"
-            width="7"
+            size="90"
+            width="4"
             color="primary"
             indeterminate
           ></v-progress-circular>
@@ -112,5 +113,11 @@ export default {
     transform: translate(-50%, 0);
     border-top-left-radius: 5px;
     border-top-left-radius: 5px;
+  }
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 </style>
