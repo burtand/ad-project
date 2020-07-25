@@ -27,16 +27,18 @@
               <v-icon right dark>mdi-cloud-upload</v-icon>
             </v-btn>
             <input
-            ref="fileInput"
             type="file"
             style="display: none;"
             accept="image/*"
+            ref="fileInput"
             @change="onFileChange">
           </v-col>
         </v-row>
         <v-row class="pt-3">
           <v-col>
-            <img :src="imageSrc" height="100" v-if="imageSrc">
+            <img v-if="imageSrc"
+            :src="imageSrc"
+            height="100">
           </v-col>
         </v-row>
         <v-row class="pt-3">
