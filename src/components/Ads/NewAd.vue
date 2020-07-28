@@ -92,7 +92,7 @@ export default {
           title: this.title,
           description: this.description,
           promo: this.promo,
-          imageSrc: 'https://miro.medium.com/max/3920/1*Vc0m5dS9SlhieEbR6n8wFg.jpeg'
+          image: this.image
         }
 
         this.$store.dispatch('createAd', ad)
