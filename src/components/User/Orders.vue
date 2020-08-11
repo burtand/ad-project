@@ -1,7 +1,21 @@
 <template>
   <v-container>
     <v-row>
-      <v-col sm="6" offset-sm="3">
+      <v-col sm="6" class="xs-text-center" v-if="loading">
+        <v-row
+        class="loader"
+        align="center"
+        justify="center"
+        >
+          <v-progress-circular
+            size="90"
+            width="4"
+            color="primary"
+            indeterminate
+          ></v-progress-circular>
+        </v-row>
+      </v-col>
+      <v-col sm="6" offset-sm="3" v-else-if="!loading && orders.length !== 0">
         <h1 class="text--secondary mb-3">Orders</h1>
         <v-list
           subheader
@@ -35,30 +49,43 @@
 
         </v-list>
       </v-col>
+      <v-col sm="6" class="xs-text-center" v-else>
+        <h1 class="text--secondary">You have no orders</h1>
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      orders: [
-        {
-          id: 'dfdf',
-          name: 'burtand',
-          phone: '8-921-1234567',
-          adId: '123',
-          done: false
-        }
-      ],
-      active: false
+  computed: {
+    loading () {
+      return this.$store.getters.loading
+    },
+    orders () {
+      return this.$store.getters.orders
     }
   },
   methods: {
     markDone (order) {
-      order.done = true
+      this.$store.dispatch('markOrderDone', order.id)
+        .then(() => {
+          order.done = true
+        })
+        .catch(() => {})
     }
+  },
+  created () {
+    this.$store.dispatch('fetchOrders')
   }
 }
 </script>
+
+<style scoped>
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
