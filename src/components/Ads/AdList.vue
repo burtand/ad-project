@@ -2,7 +2,7 @@
   <v-container>
     <v-row v-if="!loading && myAds.length !== 0">
       <v-col sm="6" offset-sm="3">
-        <h1 class="text--secondary mb-3">My ads</h1>
+        <h1 class="secondary--text mb-3">My ads</h1>
 
         <v-card
           elevation="10"
@@ -20,7 +20,7 @@
             </v-col>
             <v-col sm="8" class="pl-0">
               <v-card-text>
-                <h2 class="text--primary">{{ad.title}}</h2>
+                <h2 class="primary--text">{{ad.title}}</h2>
                 <p>{{ad.description}}</p>
               </v-card-text>
               <v-card-actions class="pt-4">
@@ -37,7 +37,7 @@
     </v-row>
     <v-row v-else-if="!loading && myAds.length === 0">
       <v-col sm="6" offset-sm="3">
-        <h1 class="text--primary">You have no ads</h1>
+        <h1 class="primary--text">You have no ads</h1>
       </v-col>
     </v-row>
     <v-row v-else>

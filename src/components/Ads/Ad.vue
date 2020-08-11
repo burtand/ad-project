@@ -8,7 +8,7 @@
             height="300px"
           ></v-img>
           <v-card-text>
-            <h1 class="text--primary">{{ad.title}}</h1>
+            <h1 class="primary--text">{{ad.title}}</h1>
             <p>{{ad.description}}</p>
           </v-card-text>
           <v-card-actions>

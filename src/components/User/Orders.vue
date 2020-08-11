@@ -16,7 +16,7 @@
         </v-row>
       </v-col>
       <v-col sm="6" offset-sm="3" v-else-if="!loading && orders.length !== 0">
-        <h1 class="text--secondary mb-3">Orders</h1>
+        <h1 class="secondary--text mb-3">Orders</h1>
         <v-list
           subheader
           two-line
@@ -50,7 +50,7 @@
         </v-list>
       </v-col>
       <v-col sm="6" class="xs-text-center" v-else>
-        <h1 class="text--secondary">You have no orders</h1>
+        <h1 class="secondary--text">You have no orders</h1>
       </v-col>
     </v-row>
   </v-container>

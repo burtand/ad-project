@@ -8,7 +8,7 @@
     <v-card>
       <v-container>
         <v-card-title>
-          <h3 class="text--primary">Do you wan't to buy it?</h3>
+          <h3 class="primary--text">Do you wan't to buy it?</h3>
         </v-card-title>
         <v-divider></v-divider>
         <v-card-text>

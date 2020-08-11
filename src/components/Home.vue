@@ -32,14 +32,14 @@
             max-width="360"
           >
             <v-img
-              class="white--text align-end"
+              class="align-end"
               height="200px"
               :src="ad.imageSrc"
             >
-              <v-card-title>
-                {{ad.title}}</v-card-title>
             </v-img>
-            <v-card-text class="text--primary">
+            <v-card-title class="primary--text">
+                {{ad.title}}</v-card-title>
+            <v-card-text class="secondary--text">
               <div>{{ad.description}}</div>
             </v-card-text>
 

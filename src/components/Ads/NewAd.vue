@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col sm="6" offset-sm="3">
-        <h1 class="text--secondary mb-3">Create new ad</h1>
+        <h1 class="secondary--text mb-3">Create new ad</h1>
         <v-form ref="form" v-model="valid" validation class="mb-3">
           <v-text-field
             label="Ad title"
